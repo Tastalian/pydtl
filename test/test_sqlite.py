@@ -18,15 +18,15 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with PyDTL. If not, see <http://www.gnu.org/licenses/>.
 
+import pydtl
 import unittest
-from pydtl import SQLiteDB, SQLiteTable, RegressionTree
 
 
 class TestSQLite(unittest.TestCase):
     def setUp(self):
-        self.db = SQLiteDB('../sample.sqlite')
+        self.db = pydtl.SQLiteDB('sample.sqlite')
         self.loc_table = self.db.dump_table('events')
-        self.rem_table = SQLiteTable('events', self.db)
+        self.rem_table = pydtl.SQLiteTable('events', self.db)
 
     def test_count(self):
         self.assertEqual(self.loc_table.count(), self.rem_table.count())
@@ -59,8 +59,8 @@ class TestSQLite(unittest.TestCase):
         self.assertEqual(nt1.count(), nt2.count())
 
     def test_tree(self):
-        tree = RegressionTree(self.rem_table, 'activity',
-                              min_count=200, split_sampling=10)
+        tree = pydtl.RegressionTree(self.rem_table, 'activity',
+                                    min_count=200, split_sampling=10)
         samples = self.rem_table.sample_rows(10)
         return [tree.predict(inst) for inst in samples]
 

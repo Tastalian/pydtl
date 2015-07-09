@@ -18,13 +18,13 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with PyDTL. If not, see <http://www.gnu.org/licenses/>.
 
+import pydtl
 import unittest
-from pydtl import SQLiteDB
 
 
 class TestTables(unittest.TestCase):
     def setUp(self):
-        with SQLiteDB('../sample.sqlite') as db:
+        with pydtl.SQLiteDB('sample.sqlite') as db:
             self.table = db.dump_table('events')
 
     def test_count(self):

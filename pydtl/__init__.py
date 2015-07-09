@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with PyDTL. If not, see <http://www.gnu.org/licenses/>.
 
-from sqlite import SQLiteDB
+from sqlite import SQLiteDB, SQLiteTable
 from tables import LocalTable
 from forest import RandomForest
 from regression import RegressionTree

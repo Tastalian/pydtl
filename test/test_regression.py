@@ -18,17 +18,17 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with PyDTL. If not, see <http://www.gnu.org/licenses/>.
 
+import pydtl
 import unittest
-from pydtl import RegressionTree, SQLiteDB
 
 
 class TestRegression(unittest.TestCase):
     def setUp(self):
-        self.db = SQLiteDB('../sample.sqlite')
+        self.db = pydtl.SQLiteDB('sample.sqlite')
         self.table = self.db.dump_table('events')
 
     def test_local(self):
-        tree = RegressionTree(self.table, 'activity')
+        tree = pydtl.RegressionTree(self.table, 'activity')
         samples = self.table.sample_rows(10)
         return [tree.predict(inst) for inst in samples]
 
