@@ -1,8 +1,10 @@
 # PyDTL
 
-PyDTL is a simple Python library for Decision Tree Learning, Bagging and Random
-Forests. I worte it during a research internship at INRIA. It has not been
-updated since May 2011.
+PyDTL is a simple Python library for [Decision Tree
+Learning](https://en.wikipedia.org/wiki/Decision_tree_learning),
+[Bagging](https://en.wikipedia.org/wiki/Bootstrap_aggregating) and [Random
+Forests](https://en.wikipedia.org/wiki/Random_forest). I worte it during
+a research internship at INRIA. It has not been updated since May 2011.
 
 ## Example
 
