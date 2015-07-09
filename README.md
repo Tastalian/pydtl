@@ -1,4 +1,4 @@
-# PyDTL — Decision Tree Learning in Python
+# PyDTL
 
 PyDTL is a simple Python library for Decision Tree Learning, Bagging and Random
 Forests. I worte it during a research internship at INRIA. It has not been
@@ -11,7 +11,7 @@ training set is given as a `pydtl.LocalTable` object, which you can read from
 an SQLite database or a CSV file. The repository contains an example database
 `sample.sqlite` with the following training set:
 
-```
+```sql
 CREATE TABLE events(
     clustering REAL, 
     completion REAL, 
@@ -30,7 +30,7 @@ CREATE TABLE events(
 We will create a random forest learning the attribute `activity` from the other
 attributes of the training set:
 
-```
+```python
 import pydtl
 
 db = pydtl.SQLiteDB('sample.sqlite')
@@ -41,7 +41,7 @@ forest = pydtl.RandomForest(table, target='activity')
 To grow the forest, call the `grow_trees()` method. If you have `pygraphviz`
 installed you can see the result using draw(), or print it otherwise:
 
-```
+```python
 forest.grow_trees(42)
 
 try:
@@ -54,7 +54,7 @@ Finally, you can call the forest's `predict()` function to predict the target
 attribute from a new instance.  Let us compute the Mean Square Error of the
 forest's predictions over a small sample set:
 
-```
+```python
 square_errors = []
 samples = table.sample_rows(42)
 for inst in samples:
